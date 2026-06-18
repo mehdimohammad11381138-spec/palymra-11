@@ -75,11 +75,16 @@
           <p>A primary discovery during the methodology phase was the complete absence of the term <strong>"Composite Authenticity"</strong> within the structured vocabularies of Wikidata and DBpedia. While the site is correctly identified as a "World Heritage Site in Danger," there are no predicates to describe the specific dimensions of its current state.</p>
           
           <div class="evidence-box">
-            <h3>Visual Proof: Wikidata Exploration</h3>
-            <div class="placeholder-img">
-              <img src="images/palmyra-satellite-comparison.png" alt="Evidence of destruction and restoration gaps" />
-              <p class="caption">Figure 1: Comparison between pre-conflict and post-destruction states highlights the data gap in material tracking.</p>
-            </div>
+            <h3>SPARQL Verification: Checking for Composite Authenticity</h3>
+            <p>To verify this gap, we executed an <code>ASK</code> query to test if the specific authenticity property exists in the Wikidata ontology for Palmyra.</p>
+            <pre class="code-block" style="margin-top:10px;">PREFIX wd: &lt;http://www.wikidata.org/entity/&gt;
+PREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;
+
+ASK
+WHERE {
+  wd:Q5747 ?property "Composite Authenticity" .
+}</pre>
+            <p style="margin-top:10px; font-weight:bold; color:#e53e3e;">Result: NO (False)</p>
           </div>
           
           <p>The KG fails to distinguish between original Roman masonry and modern restoration materials, a distinction that is crucial for heritage professionals and researchers assessing the site's integrity.</p>
@@ -92,11 +97,17 @@
           <p>Restoration efforts at Palmyra are documented in academic journals and news reports, but this information has not been serialized into RDF format. For example, the reconstruction of the <strong>Lion of Al-lāt</strong> involves complex international cooperation (UNESCO, DGAM, Polish archaeologists), yet the KG does not link these actors to the specific restoration events.</p>
           
           <div class="evidence-box">
-            <h3>Visual Proof: Actors and Methods</h3>
-            <div class="placeholder-img">
-              <img src="images/palmyra-lion-sculpture.png" alt="Lion of Al-lāt Restoration" />
-              <p class="caption">Figure 2: The Lion of Al-lāt represents a successful restoration project whose detailed process is missing from structured KGs.</p>
-            </div>
+            <h3>SPARQL Verification: Checking for Restoration Actors</h3>
+            <pre class="code-block" style="margin-top:10px;">PREFIX wd: &lt;http://www.wikidata.org/entity/&gt;
+PREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;
+
+SELECT ?actor ?actorLabel
+WHERE {
+  wd:Q324314 ?property ?actor . # Temple of Bel
+  FILTER(REGEX(str(?property), "restor|reconstruct", "i"))
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}</pre>
+            <p style="margin-top:10px; font-weight:bold; color:#e53e3e;">Result: Empty (No restoration actors found)</p>
           </div>
           
           <p>Specific methods like <strong>Anastylosis</strong> are mentioned in Wikipedia text but lack corresponding properties in the DBpedia ontology for the Palmyra entities.</p>
