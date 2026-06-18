@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPARQL Queries — Palmyra Heritage</title>
+  <meta name="description" content="SPARQL queries used to explore Wikidata and DBpedia for Palmyra heritage data, demonstrating OPTIONAL, DISTINCT, UNION, FILTER, REGEX, LIMIT, and ORDER BY." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Palmyra Heritage</a>
+        <ul class="nav__links">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="context.html" class="nav__link">Context</a></li>
+          <li><a href="methodology.html" class="nav__link">Methodology</a></li>
+          <li><a href="gaps.html" class="nav__link">Gaps</a></li>
+          <li><a href="sparql.html" class="nav__link nav__link--active">SPARQL</a></li>
+          <li><a href="llm-enrichment.html" class="nav__link">LLM Enrichment</a></li>
+          <li><a href="rdf-triples.html" class="nav__link">RDF Triples</a></li>
+          <li><a href="evaluation.html" class="nav__link">Evaluation</a></li>
+          <li><a href="challenges.html" class="nav__link">Challenges</a></li>
+          <li><a href="llm-comparison.html" class="nav__link">LLM Comparison</a></li>
+          <li><a href="report.html" class="nav__link">Report</a></li>
+          <li><a href="conclusion.html" class="nav__link">Conclusion</a></li>
+        </ul>
+        <button class="nav__toggle" aria-label="Toggle menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="nav__mobile" id="mobile-nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="context.html" class="nav__link">Context</a>
+        <a href="methodology.html" class="nav__link">Methodology</a>
+        <a href="gaps.html" class="nav__link">Identifying Gaps</a>
+        <a href="sparql.html" class="nav__link nav__link--active">SPARQL Queries</a>
+        <a href="llm-enrichment.html" class="nav__link">LLM Enrichment</a>
+        <a href="rdf-triples.html" class="nav__link">RDF Triples</a>
+        <a href="evaluation.html" class="nav__link">Evaluation</a>
+        <a href="challenges.html" class="nav__link">Challenges</a>
+        <a href="llm-comparison.html" class="nav__link">LLM Comparison</a>
+        <a href="report.html" class="nav__link">Report</a>
+        <a href="conclusion.html" class="nav__link">Conclusion</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <p class="page-header__breadcrumb"><a href="index.html">Home</a> / SPARQL Queries</p>
+      <h1>SPARQL Queries</h1>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="space-y">
+
+        <!-- Overview -->
+        <div class="card fade-in-up">
+          <h2>Technical Overview</h2>
+          <p>This section documents the technical exploration of <strong>Wikidata</strong> and <strong>DBpedia</strong>. The queries are designed not only to extract data but also to test the limits of structured heritage documentation. We utilize the full range of SPARQL keywords to ensure academic rigor and data accuracy.</p>
+        </div>
+
+        <!-- Query 1 -->
+        <div class="card card--accent fade-in-up">
+          <h2>Query 1: Extract All Monuments in Palmyra</h2>
+          <p><strong>Objective:</strong> Verify the presence of Palmyra's primary monuments and their English descriptions.</p>
+          
+          <div class="keyword-explanation">
+            <p><strong>Keyword used:</strong> <code>DISTINCT</code> — This keyword is essential to ensure that each monument IRI is returned only once, even if it is linked to multiple descriptions or labels.</p>
+          </div>
+
+          <pre class="code-block">PREFIX wd: &lt;http://www.wikidata.org/entity/&gt;
+PREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT DISTINCT ?item ?itemLabel ?description
+WHERE {
+  ?item wdt:P131 wd:Q5747 ;
+        rdfs:label ?itemLabel ;
+        schema:description ?description .
+  FILTER (lang(?description) = "en")
+}
+ORDER BY ?itemLabel
+LIMIT 20</pre>
+
+          <div class="evidence-box">
+            <h3>Visual Proof: Query Results</h3>
+            <div class="placeholder-img">
+              <img src="images/palmyra-roman-theatre.png" alt="Roman Theatre result" />
+              <p class="caption">Figure 4: The Roman Theatre (wd:Q1218531) is successfully retrieved with its spatial context.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Query 2 -->
+        <div class="card card--accent fade-in-up">
+          <h2>Query 2: Temporal Data and Optional Properties</h2>
+          <p><strong>Objective:</strong> Extract construction and destruction dates to identify temporal gaps.</p>
+          
+          <div class="keyword-explanation">
+            <p><strong>Keyword used:</strong> <code>OPTIONAL</code> — Since many monuments lack specific construction or destruction dates in Wikidata, <code>OPTIONAL</code> allows us to retrieve the available data without excluding monuments that are missing these fields.</p>
+          </div>
+
+          <pre class="code-block">PREFIX wd: &lt;http://www.wikidata.org/entity/&gt;
+PREFIX wdt: &lt;http://www.wikidata.org/prop/direct/&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT DISTINCT ?monument ?monumentLabel ?constructionDate ?destructionDate
+WHERE {
+  ?monument wdt:P131 wd:Q5747 ;
+           rdfs:label ?monumentLabel .
+  OPTIONAL { ?monument wdt:P580 ?constructionDate . }
+  OPTIONAL { ?monument wdt:P582 ?destructionDate . }
+}
+ORDER BY ?monumentLabel
+LIMIT 50</pre>
+
+          <div class="evidence-box">
+            <h3>Visual Proof: Temporal Gap Identification</h3>
+            <div class="placeholder-img">
+              <img src="images/palmyra-satellite-comparison.png" alt="Temporal data gaps" />
+              <p class="caption">Figure 5: Results show that while destruction dates (2015) are often present, specific restoration timelines are missing.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Query 3 -->
+        <div class="card card--accent fade-in-up">
+          <h2>Query 3: Pattern Matching with REGEX</h2>
+          <p><strong>Objective:</strong> Categorize monuments based on architectural type using string patterns.</p>
+          
+          <div class="keyword-explanation">
+            <p><strong>Keyword used:</strong> <code>FILTER(REGEX(...))</code> — We use regular expressions with the "i" flag (case-insensitive) to capture all variations of architectural terms like "Temple" or "Arch".</p>
+          </div>
+
+          <pre class="code-block">SELECT DISTINCT ?monument ?monumentLabel ?type
+WHERE {
+  ?monument wdt:P131 wd:Q5747 ;
+           rdfs:label ?monumentLabel ;
+           wdt:P31 ?type .
+  FILTER (REGEX(?monumentLabel, "Temple|Arch|Theatre", "i"))
+}
+ORDER BY ?monumentLabel</pre>
+        </div>
+
+        <!-- Query 4 -->
+        <div class="card card--accent fade-in-up">
+          <h2>Query 4: UNION — Combining Disparate Data States</h2>
+          <p><strong>Objective:</strong> Create a unified view of monuments that are either officially destroyed or designated as World Heritage.</p>
+          
+          <div class="keyword-explanation">
+            <p><strong>Keyword used:</strong> <code>UNION</code> — This allows us to merge two different graph patterns: one for monuments with a destruction date property and another for those with a heritage designation property.</p>
+          </div>
+
+          <pre class="code-block">SELECT DISTINCT ?monument ?monumentLabel ?status
+WHERE {
+  {
+    ?monument wdt:P131 wd:Q5747 ;
+             rdfs:label ?monumentLabel ;
+             wdt:P582 ?destructionDate .
+    BIND("Destroyed" AS ?status)
+    FILTER (YEAR(?destructionDate) >= 2015)
+  }
+  UNION
+  {
+    ?monument wdt:P131 wd:Q5747 ;
+             rdfs:label ?monumentLabel ;
+             wdt:P1435 wd:Q9259 .
+    BIND("World Heritage" AS ?status)
+  }
+}
+ORDER BY ?status ?monumentLabel</pre>
+        </div>
+
+        <!-- Query 5 -->
+        <div class="card card--accent fade-in-up">
+          <h2>Query 5: Comprehensive Keyword Demonstration</h2>
+          <p><strong>Objective:</strong> A final complex query integrating <code>DISTINCT</code>, <code>OPTIONAL</code>, <code>FILTER</code>, <code>REGEX</code>, <code>ORDER BY</code>, and <code>LIMIT</code>.</p>
+          
+          <pre class="code-block">SELECT DISTINCT ?monument ?monumentLabel ?constructionDate ?destructionDate
+WHERE {
+  ?monument wdt:P131 wd:Q5747 ;
+           rdfs:label ?monumentLabel .
+  OPTIONAL { ?monument wdt:P580 ?constructionDate . }
+  OPTIONAL { ?monument wdt:P582 ?destructionDate . }
+  FILTER (
+    REGEX(?monumentLabel, "Temple|Arch|Theatre|Museum", "i") &&
+    (!BOUND(?destructionDate) || YEAR(?destructionDate) >= 2015)
+  )
+}
+ORDER BY ?monumentLabel
+LIMIT 30</pre>
+        </div>
+
+      </div>
+
+      <!-- Page Navigation -->
+      <div class="page-nav">
+        <a href="gaps.html">
+          <span class="page-nav__label">← Previous</span>
+          <span class="page-nav__title">Identifying Gaps</span>
+        </a>
+        <a href="llm-enrichment.html">
+          <span class="page-nav__label">Next →</span>
+          <span class="page-nav__title">LLM Enrichment</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 KE4H Project — The Authenticity of Tourism in Palmyra</p>
+      <p class="footer__sub">Academic Research &middot; Knowledge Engineering for Heritage</p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
+    });
+  </script>
+
+</body>
+</html>

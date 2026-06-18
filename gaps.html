@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Identifying Gaps — Palmyra Heritage</title>
+  <meta name="description" content="Detailed analysis of information gaps identified in Knowledge Graphs regarding Palmyra's heritage and authenticity." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Palmyra Heritage</a>
+        <ul class="nav__links">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="context.html" class="nav__link">Context</a></li>
+          <li><a href="methodology.html" class="nav__link">Methodology</a><a href="gaps.html" class="nav__link">Identifying Gaps</a></li><li><a href="gaps.html" class="nav__link">Gaps</a></li>
+          <li><a href="gaps.html" class="nav__link nav__link--active">Gaps</a></li>
+          <li><a href="gaps.html" class="nav__link">Gaps</a></li><li><a href="sparql.html" class="nav__link">SPARQL</a></li>
+          <li><a href="llm-enrichment.html" class="nav__link">LLM Enrichment</a></li>
+          <li><a href="rdf-triples.html" class="nav__link">RDF Triples</a></li>
+          <li><a href="evaluation.html" class="nav__link">Evaluation</a></li>
+          <li><a href="challenges.html" class="nav__link">Challenges</a></li>
+          <li><a href="llm-comparison.html" class="nav__link">LLM Comparison</a></li>
+          <li><a href="report.html" class="nav__link">Report</a></li>
+          <li><a href="conclusion.html" class="nav__link">Conclusion</a></li>
+        </ul>
+        <button class="nav__toggle" aria-label="Toggle menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="nav__mobile" id="mobile-nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="context.html" class="nav__link">Context</a>
+        <a href="methodology.html" class="nav__link">Methodology</a><a href="gaps.html" class="nav__link">Identifying Gaps</a>
+        <a href="gaps.html" class="nav__link nav__link--active">Identifying Gaps</a>
+        <a href="gaps.html" class="nav__link">Identifying Gaps</a><a href="sparql.html" class="nav__link">SPARQL Queries</a>
+        <a href="llm-enrichment.html" class="nav__link">LLM Enrichment</a>
+        <a href="rdf-triples.html" class="nav__link">RDF Triples</a>
+        <a href="evaluation.html" class="nav__link">Evaluation</a>
+        <a href="challenges.html" class="nav__link">Challenges</a>
+        <a href="llm-comparison.html" class="nav__link">LLM Comparison</a>
+        <a href="report.html" class="nav__link">Report</a>
+        <a href="conclusion.html" class="nav__link">Conclusion</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <p class="page-header__breadcrumb"><a href="index.html">Home</a> / Identifying Gaps</p>
+      <h1>Identifying Gaps</h1>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="space-y">
+
+        <!-- Introduction -->
+        <div class="card fade-in-up">
+          <h2>Academic Analysis of Knowledge Gaps</h2>
+          <p>The systematic exploration of Wikidata and DBpedia revealed significant omissions regarding the contemporary state of Palmyra's heritage. While these Knowledge Graphs (KGs) excel at documenting historical facts and geographical coordinates, they struggle to capture the dynamic nature of heritage in post-conflict scenarios, particularly the nuanced concept of <strong>Composite Authenticity</strong>.</p>
+        </div>
+
+        <!-- Gap 1 -->
+        <div class="card card--accent fade-in-up">
+          <div class="gap-number">01</div>
+          <h2>Gap 1: Missing "Composite Authenticity" Metadata</h2>
+          <p>A primary discovery during the methodology phase was the complete absence of the term <strong>"Composite Authenticity"</strong> within the structured vocabularies of Wikidata and DBpedia. While the site is correctly identified as a "World Heritage Site in Danger," there are no predicates to describe the specific dimensions of its current state.</p>
+          
+          <div class="evidence-box">
+            <h3>Visual Proof: Wikidata Exploration</h3>
+            <div class="placeholder-img">
+              <img src="images/palmyra-satellite-comparison.png" alt="Evidence of destruction and restoration gaps" />
+              <p class="caption">Figure 1: Comparison between pre-conflict and post-destruction states highlights the data gap in material tracking.</p>
+            </div>
+          </div>
+          
+          <p>The KG fails to distinguish between original Roman masonry and modern restoration materials, a distinction that is crucial for heritage professionals and researchers assessing the site's integrity.</p>
+        </div>
+
+        <!-- Gap 2 -->
+        <div class="card card--accent fade-in-up">
+          <div class="gap-number">02</div>
+          <h2>Gap 2: Incomplete Restoration Records</h2>
+          <p>Restoration efforts at Palmyra are documented in academic journals and news reports, but this information has not been serialized into RDF format. For example, the reconstruction of the <strong>Lion of Al-lāt</strong> involves complex international cooperation (UNESCO, DGAM, Polish archaeologists), yet the KG does not link these actors to the specific restoration events.</p>
+          
+          <div class="evidence-box">
+            <h3>Visual Proof: Actors and Methods</h3>
+            <div class="placeholder-img">
+              <img src="images/palmyra-lion-sculpture.png" alt="Lion of Al-lāt Restoration" />
+              <p class="caption">Figure 2: The Lion of Al-lāt represents a successful restoration project whose detailed process is missing from structured KGs.</p>
+            </div>
+          </div>
+          
+          <p>Specific methods like <strong>Anastylosis</strong> are mentioned in Wikipedia text but lack corresponding properties in the DBpedia ontology for the Palmyra entities.</p>
+        </div>
+
+        <!-- Gap 3 -->
+        <div class="card card--accent fade-in-up">
+          <div class="gap-number">03</div>
+          <h2>Gap 3: Lack of Temporal Authenticity Tracking</h2>
+          <p>The Knowledge Graphs represent Palmyra in a static state or provide a single "destroyed" status. There is no temporal modeling that tracks the evolution from <em>Material Authenticity</em> (pre-2015) to <em>Digital Authenticity</em> (documentation phase) and finally to <em>Composite Authenticity</em> (restored state).</p>
+          
+          <div class="evidence-box">
+            <h3>Visual Proof: Temporal Evidence</h3>
+            <div class="placeholder-img">
+              <img src="images/palmyra-before-after-photo.png" alt="Temporal evolution of Palmyra" />
+              <p class="caption">Figure 3: Visual documentation of the site's transformation, which lacks a structured temporal counterpart in KGs.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gap 4 -->
+        <div class="card card--accent fade-in-up">
+          <div class="gap-number">04</div>
+          <h2>Gap 4: Absence of Experiential Data</h2>
+          <p>Authenticity is not just material; it is also experiential. Current KGs do not include data about visitor perception, local community attachment, or the "spirit of place" (Genius Loci) which are essential components of the Palmyra heritage experience.</p>
+          <p>By identifying these four critical gaps, this project sets the stage for using <strong>Large Language Models</strong> to extract the missing information and convert it into structured <strong>RDF Triples</strong>, thereby enriching the global heritage knowledge base.</p>
+        </div>
+
+      </div>
+
+      <!-- Page Navigation -->
+      <div class="page-nav">
+        <a href="methodology.html">
+          <span class="page-nav__label">← Previous</span>
+          <span class="page-nav__title">Methodology</span>
+        </a>
+        <a href="sparql.html">
+          <span class="page-nav__label">Next →</span>
+          <span class="page-nav__title">SPARQL Queries</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 KE4H Project — The Authenticity of Tourism in Palmyra</p>
+      <p class="footer__sub">Academic Research &middot; Knowledge Engineering for Heritage</p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
+    });
+  </script>
+
+</body>
+</html>

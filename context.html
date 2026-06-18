@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Context &amp; Background — Palmyra Heritage</title>
+  <meta name="description" content="Palmyra's significance as a UNESCO World Heritage Site, the 2015 crisis, dimensions of authenticity, and post-conflict restoration efforts." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Palmyra Heritage</a>
+        <ul class="nav__links">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="context.html" class="nav__link nav__link--active">Context</a></li>
+          <li><a href="methodology.html" class="nav__link">Methodology</a><a href="gaps.html" class="nav__link">Identifying Gaps</a></li><li><a href="gaps.html" class="nav__link">Gaps</a></li>
+          <li><a href="gaps.html" class="nav__link">Gaps</a></li><li><a href="sparql.html" class="nav__link">SPARQL</a></li>
+          <li><a href="llm-enrichment.html" class="nav__link">LLM Enrichment</a></li>
+          <li><a href="rdf-triples.html" class="nav__link">RDF Triples</a></li>
+          <li><a href="evaluation.html" class="nav__link">Evaluation</a></li>
+          <li><a href="challenges.html" class="nav__link">Challenges</a></li>
+          <li><a href="llm-comparison.html" class="nav__link">LLM Comparison</a></li>
+          <li><a href="report.html" class="nav__link">Report</a></li>
+          <li><a href="conclusion.html" class="nav__link">Conclusion</a></li>
+        </ul>
+        <button class="nav__toggle" aria-label="Toggle menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="nav__mobile" id="mobile-nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="context.html" class="nav__link nav__link--active">Context</a>
+        <a href="methodology.html" class="nav__link">Methodology</a><a href="gaps.html" class="nav__link">Identifying Gaps</a>
+        <a href="gaps.html" class="nav__link">Identifying Gaps</a><a href="sparql.html" class="nav__link">SPARQL Queries</a>
+        <a href="llm-enrichment.html" class="nav__link">LLM Enrichment</a>
+        <a href="rdf-triples.html" class="nav__link">RDF Triples</a>
+        <a href="evaluation.html" class="nav__link">Evaluation</a>
+        <a href="challenges.html" class="nav__link">Challenges</a>
+        <a href="llm-comparison.html" class="nav__link">LLM Comparison</a>
+        <a href="report.html" class="nav__link">Report</a>
+        <a href="conclusion.html" class="nav__link">Conclusion</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <p class="page-header__breadcrumb"><a href="index.html">Home</a> / Context &amp; Background</p>
+      <h1>Context &amp; Background</h1>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="space-y">
+
+        <!-- Palmyra: The Pearl of the Desert -->
+        <div class="card fade-in-up">
+          <h2>Palmyra: The Pearl of the Desert</h2>
+          <p>Palmyra, known in Arabic as Tadmor, stands as one of the most important archaeological sites in the Middle East. Located in central Syria, this ancient city served as a strategic hub on the Silk Road, uniquely blending Roman architecture with Eastern traditions. Its UNESCO World Heritage status underscores its role as a testament to cultural coexistence and human achievement.</p>
+          <p>The site's outstanding universal value lies in its exceptional representation of a multi-cultural trading center, where Greek, Roman, Persian, and Arab influences converged to create a unique architectural and cultural synthesis.</p>
+        </div>
+
+        <!-- Dimensions of Authenticity -->
+        <div class="card fade-in-up">
+          <h2>Dimensions of Authenticity</h2>
+          <div class="space-y-sm">
+            <div>
+              <h3 class="text-accent">Material Authenticity</h3>
+              <p>The physical integrity of original stone and structures. Pre-2011 Palmyra featured exceptional structural integrity due to careful "anastylosis"—the re-assembly of original fragments. This represents the highest degree of material authenticity.</p>
+            </div>
+            <div>
+              <h3 class="text-accent">Experiential Authenticity</h3>
+              <p>The visitor's genuine connection to the past, as theorized by MacCannell. However, mass tourism led to "managed" rather than "organic" experiences, replacing spontaneous interaction with staged encounters, compromising this dimension.</p>
+            </div>
+            <div>
+              <h3 class="text-accent">Interpretive Authenticity</h3>
+              <p>The honesty and transparency of the historical narrative. Institutional tensions between heritage preservation (DGAM) and market-driven tourism demands created challenges in maintaining interpretive integrity.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Crisis: 2015-2017 -->
+        <div class="card fade-in-up">
+          <h2>The Crisis: 2015–2017</h2>
+          <div class="timeline">
+            <div class="timeline__item timeline__item--danger">
+              <p class="timeline__date">May 2015: ISIS Seizure</p>
+              <p class="timeline__text">ISIS took control of Palmyra; systematic looting and threats escalated.</p>
+            </div>
+            <div class="timeline__item timeline__item--danger">
+              <p class="timeline__date">August 2015: Temple Destruction</p>
+              <p class="timeline__text">Temple of Bel and Temple of Baalshamin were dynamited and destroyed.</p>
+            </div>
+            <div class="timeline__item timeline__item--danger">
+              <p class="timeline__date">October 2015: Arch Demolished</p>
+              <p class="timeline__text">Arch of Triumph was demolished; Palmyra Museum was extensively looted.</p>
+            </div>
+            <div class="timeline__item">
+              <p class="timeline__date">2016–2017: Stabilization</p>
+              <p class="timeline__text">Syrian forces retook the site; stabilization and documentation began.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Double Loss -->
+        <div class="card fade-in-up">
+          <h2>The Double Loss: Material &amp; Intangible</h2>
+          <div class="space-y-sm">
+            <div>
+              <h3>Symbolic Destruction</h3>
+              <p>The destruction of the Temple of Bel and Arch of Triumph attacked symbols of tolerance and global cultural passage. This was not merely physical destruction but a deliberate act of cultural cleansing aimed at erasing collective memory.</p>
+            </div>
+            <div>
+              <h3>Erosion of Intangible Heritage</h3>
+              <ul class="list">
+                <li><strong>Museum Looting:</strong> Loss of interpretive context and the vital connection between artifacts and their narratives.</li>
+                <li><strong>Community Displacement:</strong> Loss of local knowledge, oral histories, and cultural practices tied to the site.</li>
+                <li><strong>Expert Loss:</strong> Displacement of key restoration experts weakened local capacity.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post-Conflict Restoration -->
+        <div class="card fade-in-up">
+          <h2>Post-Conflict Restoration Efforts</h2>
+          <p>Following the stabilization of Palmyra, multiple actors engaged in restoration and documentation efforts. These included DGAM (Syria), UNESCO, the State Hermitage (Russia), and the ALIPH Foundation, each bringing different expertise and resources.</p>
+          <p>Key restoration techniques employed include:</p>
+          <ul class="list">
+            <li><strong>Anastylosis:</strong> Re-assembly of original fallen architectural fragments in their original positions to maintain authenticity.</li>
+            <li><strong>3D Documentation:</strong> Digital scanning and archives created before, during, and after restoration.</li>
+            <li><strong>Transparency:</strong> Records clearly distinguish original parts from stabilized sections.</li>
+            <li><strong>Community Involvement:</strong> Efforts to involve local populations in management and equitable benefit-sharing.</li>
+          </ul>
+        </div>
+
+        <!-- Towards Composite Authenticity -->
+        <div class="card card--accent fade-in-up">
+          <h2>Towards Composite Authenticity</h2>
+          <p>A new form of authenticity is emerging from the interaction between original remains, transparent restoration, honest narratives, and community involvement. This "Composite Authenticity" acknowledges the complexity of heritage sites that have experienced conflict and reconstruction.</p>
+          <p>Palmyra serves as a test case for the world's response to cultural destruction in the 21st century, demonstrating how digital technologies, international cooperation, and local engagement can work together to preserve and restore cultural heritage.</p>
+        </div>
+
+      </div>
+
+      <!-- Page Navigation -->
+      <div class="page-nav">
+        <a href="index.html">
+          <span class="page-nav__label">← Previous</span>
+          <span class="page-nav__title">Home</span>
+        </a>
+        <a href="methodology.html">
+          <span class="page-nav__label">Next →</span>
+          <span class="page-nav__title">Methodology</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 KE4H Project — The Authenticity of Tourism in Palmyra</p>
+      <p class="footer__sub">Academic Research &middot; Knowledge Engineering for Heritage</p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
+    });
+  </script>
+
+</body>
+</html>

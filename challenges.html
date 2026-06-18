@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Challenges &amp; Solutions — Palmyra Heritage</title>
+  <meta name="description" content="Challenges encountered during the Palmyra heritage knowledge graph enrichment project and the solutions implemented." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Palmyra Heritage</a>
+        <ul class="nav__links">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="context.html" class="nav__link">Context</a></li>
+          <li><a href="methodology.html" class="nav__link">Methodology</a></li>
+          <li><a href="gaps.html" class="nav__link">Gaps</a></li>
+          <li><a href="sparql.html" class="nav__link">SPARQL</a></li>
+          <li><a href="llm-enrichment.html" class="nav__link">LLM Enrichment</a></li>
+          <li><a href="rdf-triples.html" class="nav__link">RDF Triples</a></li>
+          <li><a href="evaluation.html" class="nav__link">Evaluation</a></li>
+          <li><a href="challenges.html" class="nav__link nav__link--active">Challenges</a></li>
+          <li><a href="llm-comparison.html" class="nav__link">LLM Comparison</a></li>
+          <li><a href="report.html" class="nav__link">Report</a></li>
+          <li><a href="conclusion.html" class="nav__link">Conclusion</a></li>
+        </ul>
+        <button class="nav__toggle" aria-label="Toggle menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="nav__mobile" id="mobile-nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="context.html" class="nav__link">Context</a>
+        <a href="methodology.html" class="nav__link">Methodology</a>
+        <a href="gaps.html" class="nav__link">Identifying Gaps</a>
+        <a href="sparql.html" class="nav__link">SPARQL Queries</a>
+        <a href="llm-enrichment.html" class="nav__link">LLM Enrichment</a>
+        <a href="rdf-triples.html" class="nav__link">RDF Triples</a>
+        <a href="evaluation.html" class="nav__link">Evaluation</a>
+        <a href="challenges.html" class="nav__link nav__link--active">Challenges</a>
+        <a href="llm-comparison.html" class="nav__link">LLM Comparison</a>
+        <a href="report.html" class="nav__link">Report</a>
+        <a href="conclusion.html" class="nav__link">Conclusion</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <p class="page-header__breadcrumb"><a href="index.html">Home</a> / Challenges &amp; Solutions</p>
+      <h1>Challenges &amp; Solutions</h1>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="space-y">
+
+        <div class="card card--danger fade-in-up">
+          <h2>Challenge 1: Addressing LLM "Hallucinations"</h2>
+          <p><strong>The Problem:</strong> During the enrichment phase, Large Language Models occasionally generated plausible but historically inaccurate details. For instance, one model suggested that the Temple of Bel was fully restored by 2018 using 3D-printed marble, which contradicts official reports stating that restoration is still in the planning and stabilization phases.</p>
+          <p><strong>The Solution:</strong> A rigorous <strong>Verification Protocol</strong> was implemented. Every LLM-generated claim was cross-referenced with:</p>
+          <ul class="list">
+            <li>UNESCO World Heritage Centre reports</li>
+            <li>ASOR (American Society of Overseas Research) Cultural Heritage Initiatives</li>
+            <li>Official DGAM (Directorate-General of Antiquities and Museums) bulletins</li>
+          </ul>
+          <div class="evidence-box">
+            <h3>Visual Proof: Hallucination Detection</h3>
+            <div class="placeholder-img">
+              <img src="images/palmyra-satellite-comparison.png" alt="Satellite proof" />
+              <p class="caption">Figure 9: Satellite imagery was used as a "Ground Truth" to verify model claims about site reconstruction.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card--accent fade-in-up">
+          <h2>Challenge 2: Semantic Gap in Ontologies</h2>
+          <p><strong>The Problem:</strong> Standard ontologies like CIDOC-CRM or Schema.org do not have a specific property for <em>"Composite Authenticity."</em> Representing the relationship between original Roman stones and modern restoration materials required more than simple existing predicates.</p>
+          <p><strong>The Solution:</strong> We adopted a <strong>Vocabulary Extension</strong> strategy. By using <code>rdfs:subPropertyOf</code>, we linked our specific authenticity concepts to broader, recognized terms, ensuring both semantic precision and interoperability.</p>
+        </div>
+
+        <div class="card card--accent fade-in-up">
+          <h2>Challenge 3: Multi-Source Data Inconsistency</h2>
+          <p><strong>The Problem:</strong> Wikidata, DBpedia, and ArCo (Italian ontology) often use different IRIs for the same physical monument, leading to fragmented data when trying to build a unified Knowledge Graph.</p>
+          <p><strong>The Solution:</strong> Implementation of <code>owl:sameAs</code> triples. We manually identified and linked the corresponding IRIs across different graphs to create a truly integrated linked data environment for Palmyra.</p>
+          <div class="evidence-box">
+            <h3>Visual Proof: Entity Linking</h3>
+            <div class="placeholder-img">
+              <img src="images/palmyra-before-after-photo.png" alt="Before and after" />
+              <p class="caption">Figure 10: Linking disparate data sources allowed us to track the site's transformation across different knowledge repositories.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Page Navigation -->
+      <div class="page-nav">
+        <a href="evaluation.html">
+          <span class="page-nav__label">← Previous</span>
+          <span class="page-nav__title">Evaluation</span>
+        </a>
+        <a href="llm-comparison.html">
+          <span class="page-nav__label">Next →</span>
+          <span class="page-nav__title">LLM Comparison</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 KE4H Project — The Authenticity of Tourism in Palmyra</p>
+      <p class="footer__sub">Academic Research &middot; Knowledge Engineering for Heritage</p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
+    });
+  </script>
+
+</body>
+</html>

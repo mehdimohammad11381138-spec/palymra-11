@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLM Comparison — Palmyra Heritage</title>
+  <meta name="description" content="Comparison of ChatGPT, Claude, and Gemini for heritage knowledge extraction — strengths, weaknesses, and accuracy scores." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Palmyra Heritage</a>
+        <ul class="nav__links">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="context.html" class="nav__link">Context</a></li>
+          <li><a href="methodology.html" class="nav__link">Methodology</a><a href="gaps.html" class="nav__link">Identifying Gaps</a></li><li><a href="gaps.html" class="nav__link">Gaps</a></li>
+          <li><a href="gaps.html" class="nav__link">Gaps</a></li><li><a href="sparql.html" class="nav__link">SPARQL</a></li>
+          <li><a href="llm-enrichment.html" class="nav__link">LLM Enrichment</a></li>
+          <li><a href="rdf-triples.html" class="nav__link">RDF Triples</a></li>
+          <li><a href="evaluation.html" class="nav__link">Evaluation</a></li>
+          <li><a href="challenges.html" class="nav__link">Challenges</a></li>
+          <li><a href="llm-comparison.html" class="nav__link nav__link--active">LLM Comparison</a></li>
+          <li><a href="report.html" class="nav__link">Report</a></li>
+          <li><a href="conclusion.html" class="nav__link">Conclusion</a></li>
+        </ul>
+        <button class="nav__toggle" aria-label="Toggle menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="nav__mobile" id="mobile-nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="context.html" class="nav__link">Context</a>
+        <a href="methodology.html" class="nav__link">Methodology</a><a href="gaps.html" class="nav__link">Identifying Gaps</a>
+        <a href="gaps.html" class="nav__link">Identifying Gaps</a><a href="sparql.html" class="nav__link">SPARQL Queries</a>
+        <a href="llm-enrichment.html" class="nav__link">LLM Enrichment</a>
+        <a href="rdf-triples.html" class="nav__link">RDF Triples</a>
+        <a href="evaluation.html" class="nav__link">Evaluation</a>
+        <a href="challenges.html" class="nav__link">Challenges</a>
+        <a href="llm-comparison.html" class="nav__link nav__link--active">LLM Comparison</a>
+        <a href="report.html" class="nav__link">Report</a>
+        <a href="conclusion.html" class="nav__link">Conclusion</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <p class="page-header__breadcrumb"><a href="index.html">Home</a> / LLM Comparison</p>
+      <h1>LLM Comparison</h1>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="space-y">
+
+        <div class="card fade-in-up comparison-card">
+          <h2>ChatGPT (OpenAI)</h2>
+          <div class="space-y-sm">
+            <p><strong>Strengths:</strong> Comprehensive narratives, good contextual understanding</p>
+            <p><strong>Weaknesses:</strong> Occasional hallucinations about specific dates</p>
+          </div>
+          <div class="comparison-card__score">
+            <span>Accuracy Score:</span> 82%
+          </div>
+        </div>
+
+        <div class="card fade-in-up comparison-card">
+          <h2>Claude (Anthropic)</h2>
+          <div class="space-y-sm">
+            <p><strong>Strengths:</strong> Structured responses, acknowledges uncertainty</p>
+            <p><strong>Weaknesses:</strong> Sometimes overly cautious in assertions</p>
+          </div>
+          <div class="comparison-card__score">
+            <span>Accuracy Score:</span> 88%
+          </div>
+        </div>
+
+        <div class="card fade-in-up comparison-card">
+          <h2>Gemini (Google)</h2>
+          <div class="space-y-sm">
+            <p><strong>Strengths:</strong> Excellent step-by-step reasoning, detailed analysis</p>
+            <p><strong>Weaknesses:</strong> Verbose responses, sometimes redundant</p>
+          </div>
+          <div class="comparison-card__score">
+            <span>Accuracy Score:</span> 85%
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Page Navigation -->
+      <div class="page-nav">
+        <a href="challenges.html">
+          <span class="page-nav__label">← Previous</span>
+          <span class="page-nav__title">Challenges</span>
+        </a>
+        <a href="report.html">
+          <span class="page-nav__label">Next →</span>
+          <span class="page-nav__title">Report</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 KE4H Project — The Authenticity of Tourism in Palmyra</p>
+      <p class="footer__sub">Academic Research &middot; Knowledge Engineering for Heritage</p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
+    });
+  </script>
+
+</body>
+</html>

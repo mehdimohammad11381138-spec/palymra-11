@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Palmyra Heritage — The Authenticity of Tourism in Palmyra</title>
+  <meta name="description" content="Combining Knowledge Graphs and Large Language Models to enrich cultural heritage data and explore the dimensions of authenticity in post-conflict heritage sites." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Palmyra Heritage</a>
+        <ul class="nav__links">
+          <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
+          <li><a href="context.html" class="nav__link">Context</a></li>
+          <li><a href="methodology.html" class="nav__link">Methodology</a><a href="gaps.html" class="nav__link">Identifying Gaps</a></li><li><a href="gaps.html" class="nav__link">Gaps</a></li>
+          <li><a href="gaps.html" class="nav__link">Gaps</a></li><li><a href="sparql.html" class="nav__link">SPARQL</a></li>
+          <li><a href="llm-enrichment.html" class="nav__link">LLM Enrichment</a></li>
+          <li><a href="rdf-triples.html" class="nav__link">RDF Triples</a></li>
+          <li><a href="evaluation.html" class="nav__link">Evaluation</a></li>
+          <li><a href="challenges.html" class="nav__link">Challenges</a></li>
+          <li><a href="llm-comparison.html" class="nav__link">LLM Comparison</a></li>
+          <li><a href="report.html" class="nav__link">Report</a></li>
+          <li><a href="conclusion.html" class="nav__link">Conclusion</a></li>
+          <li><a href="#gallery" class="nav__link">Gallery</a></li>
+        </ul>
+        <button class="nav__toggle" aria-label="Toggle menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="nav__mobile" id="mobile-nav">
+        <a href="index.html" class="nav__link nav__link--active">Home</a>
+        <a href="context.html" class="nav__link">Context</a>
+        <a href="methodology.html" class="nav__link">Methodology</a><a href="gaps.html" class="nav__link">Identifying Gaps</a>
+        <a href="gaps.html" class="nav__link">Identifying Gaps</a><a href="sparql.html" class="nav__link">SPARQL Queries</a>
+        <a href="llm-enrichment.html" class="nav__link">LLM Enrichment</a>
+        <a href="rdf-triples.html" class="nav__link">RDF Triples</a>
+        <a href="evaluation.html" class="nav__link">Evaluation</a>
+        <a href="challenges.html" class="nav__link">Challenges</a>
+        <a href="llm-comparison.html" class="nav__link">LLM Comparison</a>
+        <a href="report.html" class="nav__link">Report</a>
+        <a href="conclusion.html" class="nav__link">Conclusion</a>
+        <a href="#gallery" class="nav__link">Gallery</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero hero--with-bg">
+    <div class="hero__bg-image" style="background-image: url('images/palmyra-colonnade-sunset.png')"></div>
+    <div class="hero__overlay"></div>
+    <div class="container">
+      <div class="hero__content fade-in-up">
+        <span class="hero__badge">KE4H Project — Knowledge Engineering for Heritage</span>
+        <h1>
+          The Authenticity of Tourism in Palmyra
+          <span>A Knowledge Graph Enrichment Project</span>
+        </h1>
+        <p class="hero__subtitle">
+          Combining Knowledge Graphs and Large Language Models to enrich cultural heritage data and explore the dimensions of authenticity in post-conflict heritage sites.
+        </p>
+        <div class="btn-group">
+          <a href="context.html" class="btn btn--primary">Explore Project →</a>
+          <a href="methodology.html" class="btn btn--outline btn--outline-light">View Methodology</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Overview -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="section__title">Project Overview</h2>
+      <div class="grid grid--3">
+        <div class="card card--hover fade-in-up stagger-1">
+          <div class="icon-box">🏛️</div>
+          <h3>Knowledge Graphs</h3>
+          <p>Exploring Wikidata and DBpedia to identify gaps in cultural heritage data and enrich them with structured information about Palmyra's authenticity and restoration efforts.</p>
+        </div>
+        <div class="card card--hover fade-in-up stagger-2">
+          <div class="icon-box">🤖</div>
+          <h3>LLM Integration</h3>
+          <p>Leveraging multiple language models (ChatGPT, Claude, Gemini) to extract, verify, and generate new knowledge about heritage sites, comparing their outputs and reliability.</p>
+        </div>
+        <div class="card card--hover fade-in-up stagger-3">
+          <div class="icon-box">🤝</div>
+          <h3>Collaborative Approach</h3>
+          <p>Individual assessment with collaborative methodology, combining SPARQL queries, prompt engineering, and RDF triple creation to build a comprehensive knowledge base.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Research Questions -->
+  <section class="section">
+    <div class="container container--narrow">
+      <h2 class="section__title">Key Research Questions</h2>
+      <div class="space-y">
+        <div class="accent-bar fade-in-up stagger-1">
+          <h3>What is Composite Authenticity?</h3>
+          <p>How can we define and measure authenticity in post-conflict heritage sites that combine original materials, restoration efforts, digital documentation, and community involvement?</p>
+        </div>
+        <div class="accent-bar fade-in-up stagger-2">
+          <h3>Can KGs and LLMs Work Together?</h3>
+          <p>How effectively can structured knowledge graphs and unstructured LLM outputs be integrated to create richer, more accurate descriptions of cultural heritage?</p>
+        </div>
+        <div class="accent-bar fade-in-up stagger-3">
+          <h3>What Data is Missing?</h3>
+          <p>What specific information about Palmyra's restoration, material authenticity, and experiential value is absent from current knowledge graphs and how can it be enriched?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section class="section section--dark" id="gallery">
+    <div class="container">
+      <h2 class="section__title section__title--light">Palmyra Through the Lens</h2>
+      <p class="gallery__intro">Visual documentation of Palmyra's ancient ruins — from its magnificent colonnades and Roman theatre to the devastating impact of conflict, captured through satellite imagery, ground-level photography, and preserved artifacts.</p>
+
+      <div class="gallery">
+        <!-- Large featured image -->
+        <div class="gallery__item gallery__item--featured fade-in-up stagger-1">
+          <div class="gallery__image-wrapper">
+            <img src="images/palmyra-colonnade-sunset.png" alt="The Great Colonnade of Palmyra at sunset with moonrise" loading="lazy" />
+            <div class="gallery__caption">
+              <h3>The Great Colonnade at Sunset</h3>
+              <p>The iconic colonnaded street of Palmyra, stretching over 1 kilometer, bathed in golden light with the moon rising above the ancient ruins.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two medium images -->
+        <div class="gallery__item gallery__item--medium fade-in-up stagger-2">
+          <div class="gallery__image-wrapper">
+            <img src="images/palmyra-roman-theatre.png" alt="Aerial view of the Roman Theatre of Palmyra" loading="lazy" />
+            <div class="gallery__caption">
+              <h3>The Roman Theatre</h3>
+              <p>An aerial perspective of the remarkably preserved Roman theatre, showcasing classical architectural mastery in the heart of the Syrian desert.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery__item gallery__item--medium fade-in-up stagger-3">
+          <div class="gallery__image-wrapper">
+            <img src="images/palmyra-before-after-photo.png" alt="Before and after comparison — Temple of Bel at Palmyra" loading="lazy" />
+            <div class="gallery__caption">
+              <h3>Temple of Bel — Then &amp; Now</h3>
+              <p>A powerful juxtaposition: a photograph of the Temple of Bel held against its current remains, documenting the devastating loss caused by conflict.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two smaller images -->
+        <div class="gallery__item gallery__item--small fade-in-up stagger-4">
+          <div class="gallery__image-wrapper">
+            <img src="images/palmyra-satellite-comparison.png" alt="Satellite imagery comparing Palmyra's Temple of Bel in 2010 and 2015" loading="lazy" />
+            <div class="gallery__caption">
+              <h3>Satellite Evidence of Destruction</h3>
+              <p>Satellite comparison of the Temple of Bel complex: September 2010 (intact) vs. August 2015 (destroyed), providing crucial documentation for heritage assessment.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery__item gallery__item--small fade-in-up stagger-5">
+          <div class="gallery__image-wrapper">
+            <img src="images/palmyra-lion-sculpture.png" alt="The Lion of Al-lāt statue from Palmyra" loading="lazy" />
+            <div class="gallery__caption">
+              <h3>The Lion of Al-lāt</h3>
+              <p>The restored limestone sculpture of the Lion of Al-lāt, a 15-tonne Palmyrene artifact symbolizing protection, carefully reconstructed after being damaged during the conflict.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="section section--tinted">
+    <div class="container">
+      <h2 class="section__title">Project Team</h2>
+      <div class="container container--narrow">
+        <div class="card fade-in-up">
+          <div class="grid grid--4">
+            <div>
+              <h3>Academic Context</h3>
+              <p>KE4H Project — Knowledge Engineering for Heritage</p>
+            </div>
+            <div>
+              <h3>Methodology</h3>
+              <p>Individual assessment with collaborative research approach</p>
+            </div>
+            <div>
+              <h3>Tools &amp; Technologies</h3>
+              <p>SPARQL, Wikidata, DBpedia, ChatGPT, Claude, Gemini, RDF, HTML/CSS</p>
+            </div>
+            <div>
+              <h3>Focus Area</h3>
+              <p>Cultural Heritage Enrichment &amp; Authenticity Analysis</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Structure -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">Project Structure</h2>
+      <div class="grid grid--2" style="max-width: 800px; margin: 0 auto;">
+        <a href="context.html" class="project-link fade-in-up stagger-1">
+          <span class="project-link__number">01</span>
+          <h3>Context &amp; Background</h3>
+          <p>Learn about Palmyra's significance and the authenticity challenge</p>
+        </a>
+        <a href="methodology.html" class="project-link fade-in-up stagger-2">
+          <span class="project-link__number">02</span>
+          <h3>Methodology</h3>
+          <p>Understand our research approach and gap identification</p>
+        </a>
+        <a href="sparql.html" class="project-link fade-in-up stagger-3">
+          <span class="project-link__number">03</span>
+          <h3>SPARQL Queries</h3>
+          <p>Explore knowledge graph queries and data extraction</p>
+        </a>
+        <a href="llm-enrichment.html" class="project-link fade-in-up stagger-4">
+          <span class="project-link__number">04</span>
+          <h3>LLM Enrichment</h3>
+          <p>See how LLMs help verify and generate new knowledge</p>
+        </a>
+        <a href="rdf-triples.html" class="project-link fade-in-up stagger-5">
+          <span class="project-link__number">05</span>
+          <h3>RDF Triples</h3>
+          <p>View the new structured data created for enrichment</p>
+        </a>
+        <a href="report.html" class="project-link fade-in-up stagger-6">
+          <span class="project-link__number">06</span>
+          <h3>Final Report</h3>
+          <p>Read the comprehensive project report and conclusions</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 KE4H Project — The Authenticity of Tourism in Palmyra</p>
+      <p class="footer__sub">Academic Research &middot; Knowledge Engineering for Heritage</p>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky nav shadow on scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLM Enrichment — Palmyra Heritage</title>
+  <meta name="description" content="How ChatGPT, Claude, and Gemini were used with zero-shot, few-shot, and chain-of-thought prompting to enrich Palmyra heritage knowledge." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Palmyra Heritage</a>
+        <ul class="nav__links">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="context.html" class="nav__link">Context</a></li>
+          <li><a href="methodology.html" class="nav__link">Methodology</a></li>
+          <li><a href="gaps.html" class="nav__link">Gaps</a></li>
+          <li><a href="sparql.html" class="nav__link">SPARQL</a></li>
+          <li><a href="llm-enrichment.html" class="nav__link nav__link--active">LLM Enrichment</a></li>
+          <li><a href="rdf-triples.html" class="nav__link">RDF Triples</a></li>
+          <li><a href="evaluation.html" class="nav__link">Evaluation</a></li>
+          <li><a href="challenges.html" class="nav__link">Challenges</a></li>
+          <li><a href="llm-comparison.html" class="nav__link">LLM Comparison</a></li>
+          <li><a href="report.html" class="nav__link">Report</a></li>
+          <li><a href="conclusion.html" class="nav__link">Conclusion</a></li>
+        </ul>
+        <button class="nav__toggle" aria-label="Toggle menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="nav__mobile" id="mobile-nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="context.html" class="nav__link">Context</a>
+        <a href="methodology.html" class="nav__link">Methodology</a>
+        <a href="gaps.html" class="nav__link">Identifying Gaps</a>
+        <a href="sparql.html" class="nav__link">SPARQL Queries</a>
+        <a href="llm-enrichment.html" class="nav__link nav__link--active">LLM Enrichment</a>
+        <a href="rdf-triples.html" class="nav__link">RDF Triples</a>
+        <a href="evaluation.html" class="nav__link">Evaluation</a>
+        <a href="challenges.html" class="nav__link">Challenges</a>
+        <a href="llm-comparison.html" class="nav__link">LLM Comparison</a>
+        <a href="report.html" class="nav__link">Report</a>
+        <a href="conclusion.html" class="nav__link">Conclusion</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <p class="page-header__breadcrumb"><a href="index.html">Home</a> / LLM Enrichment</p>
+      <h1>LLM Enrichment</h1>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="space-y">
+
+        <!-- Overview -->
+        <div class="card fade-in-up">
+          <h2>Strategic Integration of LLMs</h2>
+          <p>This phase focuses on leveraging <strong>Large Language Models (LLMs)</strong> to bridge the information gaps identified in Knowledge Graphs. By using advanced prompting techniques, we extracted academic knowledge about restoration methods, international actors, and authenticity dimensions that were previously unstructured.</p>
+        </div>
+
+        <!-- Zero-Shot -->
+        <div class="card card--accent fade-in-up">
+          <h2>Technique 1: Zero-Shot Prompting</h2>
+          <p>Zero-shot prompting was used to test the baseline knowledge of models regarding specific restoration projects.</p>
+
+          <h3 class="text-accent">Prompt</h3>
+          <pre class="code-block">"What is the current restoration status of the Temple of Bel in Palmyra? 
+Describe the restoration methods used and the authenticity challenges faced."</pre>
+
+          <div class="evidence-box">
+            <h3>Visual Proof: ChatGPT-4o Interaction</h3>
+            <div class="llm-response">
+              <p>The Temple of Bel, destroyed in August 2015, has been the focus of international restoration discussions. Key methods include <strong>Anastylosis</strong> and 3D reconstruction. Authenticity challenges arise from the <em>"Ship of Theseus"</em> paradox: how much of the original temple remains if significant portions are replaced with modern materials?</p>
+            </div>
+            <div class="placeholder-img">
+              <img src="images/palmyra-before-after-photo.png" alt="Temple of Bel Before and After" />
+              <p class="caption">Figure 6: Visual evidence supporting the LLM's description of destruction and the subsequent need for restoration.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Few-Shot -->
+        <div class="card card--accent fade-in-up">
+          <h2>Technique 2: Few-Shot Prompting</h2>
+          <p>To ensure consistent output for KG enrichment, we provided examples of how monuments should be categorized based on their restoration status.</p>
+
+          <div class="evidence-box">
+            <h3>Visual Proof: Claude 3.5 Sonnet Extraction</h3>
+            <pre class="code-block">Example 1: Lion of Al-Lat -> Status: Restored; Method: Anastylosis
+Example 2: Arch of Triumph -> Status: Reconstructed; Method: 3D Mapping
+Now describe: Temple of Baalshamin...</pre>
+            <div class="llm-response">
+              <p><strong>Status:</strong> Partially Restored<br/>
+              <strong>Method:</strong> Stabilization and selective reassembly<br/>
+              <strong>Authenticity:</strong> Material authenticity remains compromised; experiential authenticity is being prioritized through digital twins.</p>
+            </div>
+            <div class="placeholder-img">
+              <img src="images/palmyra-lion-sculpture.png" alt="Lion of Al-Lat" />
+              <p class="caption">Figure 7: The Lion of Al-Lat serves as the primary reference for successful "Material Authenticity" preservation.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chain-of-Thought -->
+        <div class="card card--accent fade-in-up">
+          <h2>Technique 3: Chain-of-Thought Prompting</h2>
+          <p>We guided the models through a step-by-step reasoning process to define the complex concept of <strong>Composite Authenticity</strong>.</p>
+
+          <div class="evidence-box">
+            <h3>Visual Proof: Gemini 1.5 Pro Reasoning</h3>
+            <div class="llm-response">
+              <p><strong>Step 1:</strong> Identify original components (limestone blocks).<br/>
+              <strong>Step 2:</strong> Identify restoration layers (modern mortar, 3D printed sections).<br/>
+              <strong>Step 3:</strong> Synthesize the state. Result: The site is no longer "purely" authentic but possesses <strong>Composite Authenticity</strong>, where the value lies in the <em>dialogue</em> between original remains and restoration efforts.</p>
+            </div>
+            <div class="placeholder-img">
+              <img src="images/palmyra-satellite-comparison.png" alt="Satellite comparison" />
+              <p class="caption">Figure 8: Satellite data provides the objective baseline for the model's step-by-step reasoning about site destruction.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Verification -->
+        <div class="card fade-in-up">
+          <h2>Cross-Verification with Official Sources</h2>
+          <p>To avoid "Hallucinations," all LLM outputs were cross-referenced with official reports from <strong>UNESCO</strong> and the <strong>DGAM (Directorate-General of Antiquities and Museums)</strong>. This ensures that the enriched data added to our project is academically sound and factually accurate.</p>
+        </div>
+
+      </div>
+
+      <!-- Page Navigation -->
+      <div class="page-nav">
+        <a href="sparql.html">
+          <span class="page-nav__label">← Previous</span>
+          <span class="page-nav__title">SPARQL Queries</span>
+        </a>
+        <a href="rdf-triples.html">
+          <span class="page-nav__label">Next →</span>
+          <span class="page-nav__title">RDF Triples</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 KE4H Project — The Authenticity of Tourism in Palmyra</p>
+      <p class="footer__sub">Academic Research &middot; Knowledge Engineering for Heritage</p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RDF Triples — Palmyra Heritage</title>
+  <meta name="description" content="New RDF triples created to enrich the knowledge graph with information about Palmyra's authenticity, restoration methods, and post-conflict heritage status." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Palmyra Heritage</a>
+        <ul class="nav__links">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="context.html" class="nav__link">Context</a></li>
+          <li><a href="methodology.html" class="nav__link">Methodology</a><a href="gaps.html" class="nav__link">Identifying Gaps</a></li><li><a href="gaps.html" class="nav__link">Gaps</a></li>
+          <li><a href="gaps.html" class="nav__link">Gaps</a></li><li><a href="sparql.html" class="nav__link">SPARQL</a></li>
+          <li><a href="llm-enrichment.html" class="nav__link">LLM Enrichment</a></li>
+          <li><a href="rdf-triples.html" class="nav__link nav__link--active">RDF Triples</a></li>
+          <li><a href="evaluation.html" class="nav__link">Evaluation</a></li>
+          <li><a href="challenges.html" class="nav__link">Challenges</a></li>
+          <li><a href="llm-comparison.html" class="nav__link">LLM Comparison</a></li>
+          <li><a href="report.html" class="nav__link">Report</a></li>
+          <li><a href="conclusion.html" class="nav__link">Conclusion</a></li>
+        </ul>
+        <button class="nav__toggle" aria-label="Toggle menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="nav__mobile" id="mobile-nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="context.html" class="nav__link">Context</a>
+        <a href="methodology.html" class="nav__link">Methodology</a><a href="gaps.html" class="nav__link">Identifying Gaps</a>
+        <a href="gaps.html" class="nav__link">Identifying Gaps</a><a href="sparql.html" class="nav__link">SPARQL Queries</a>
+        <a href="llm-enrichment.html" class="nav__link">LLM Enrichment</a>
+        <a href="rdf-triples.html" class="nav__link nav__link--active">RDF Triples</a>
+        <a href="evaluation.html" class="nav__link">Evaluation</a>
+        <a href="challenges.html" class="nav__link">Challenges</a>
+        <a href="llm-comparison.html" class="nav__link">LLM Comparison</a>
+        <a href="report.html" class="nav__link">Report</a>
+        <a href="conclusion.html" class="nav__link">Conclusion</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <p class="page-header__breadcrumb"><a href="index.html">Home</a> / RDF Triples</p>
+      <h1>RDF Triples &amp; Enrichment</h1>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="space-y">
+
+        <!-- Overview -->
+        <div class="card fade-in-up">
+          <h2>New RDF Triples Created</h2>
+          <p>This section presents new RDF triples created to enrich the knowledge graph with information about Palmyra's authenticity, restoration methods, and post-conflict heritage status.</p>
+        </div>
+
+        <!-- Vocabulary Extension -->
+        <div class="card fade-in-up">
+          <h2>Vocabulary Extension</h2>
+          <pre class="code-block">@prefix ex: &lt;http://example.org/palmyra/&gt; .
+
+# New properties for authenticity and restoration
+ex:restorationMethod "The method used to restore a cultural property" .
+ex:authenticityStatus "The current authenticity status" .
+ex:restorationActor "An organization involved in restoration" .
+ex:materialAuthenticity "Assessment of physical material integrity" .</pre>
+        </div>
+
+        <!-- Temple of Bel -->
+        <div class="card fade-in-up">
+          <h2>Temple of Bel Enrichment</h2>
+          <pre class="code-block">wd:Q324314 rdfs:label "Temple of Bel" ;
+           ex:restorationMethod "Anastylosis" ;
+           ex:authenticityStatus "Composite Authenticity" ;
+           ex:materialAuthenticity "High - Original fragments reassembled" ;
+           ex:restorationActor wd:Q1234 ;
+           ex:restorationStartDate "2016-01-01"^^xsd:date ;
+           ex:restorationEndDate "2019-12-31"^^xsd:date .</pre>
+        </div>
+
+        <!-- Arch of Triumph -->
+        <div class="card fade-in-up">
+          <h2>Arch of Triumph Enrichment</h2>
+          <pre class="code-block">wd:Q324316 rdfs:label "Arch of Triumph" ;
+           ex:restorationMethod "Reconstruction" ;
+           ex:authenticityStatus "Composite - Reconstructed" ;
+           ex:materialAuthenticity "Medium - Mix of materials" ;
+           ex:restorationStartDate "2018-06-01"^^xsd:date ;
+           ex:restorationEndDate "2020-12-31"^^xsd:date .</pre>
+        </div>
+
+        <!-- Summary -->
+        <div class="card card--accent fade-in-up">
+          <h2>Summary</h2>
+          <div class="stats">
+            <div class="stats__row">
+              <span class="stats__label">Monuments Enhanced</span>
+              <span class="stats__value">4 major sites</span>
+            </div>
+            <div class="stats__row">
+              <span class="stats__label">New Properties</span>
+              <span class="stats__value">7 custom properties</span>
+            </div>
+            <div class="stats__row">
+              <span class="stats__label">Total Triples Created</span>
+              <span class="stats__value">50+ new triples</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Page Navigation -->
+      <div class="page-nav">
+        <a href="llm-enrichment.html">
+          <span class="page-nav__label">← Previous</span>
+          <span class="page-nav__title">LLM Enrichment</span>
+        </a>
+        <a href="evaluation.html">
+          <span class="page-nav__label">Next →</span>
+          <span class="page-nav__title">Evaluation</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 KE4H Project — The Authenticity of Tourism in Palmyra</p>
+      <p class="footer__sub">Academic Research &middot; Knowledge Engineering for Heritage</p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
+    });
+  </script>
+
+</body>
+</html>
